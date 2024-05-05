@@ -19,6 +19,7 @@
 		5FBC89A82BE76F78006E73DD /* SpeedTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBC89A22BE76F78006E73DD /* SpeedTestViewController.swift */; };
 		5FBC89A92BE76F78006E73DD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBC89A32BE76F78006E73DD /* SettingsViewController.swift */; };
 		5FBC89AA2BE76F78006E73DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBC89A42BE76F78006E73DD /* AppDelegate.swift */; };
+		5FBC89AC2BE77B4B006E73DD /* SpeedTestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBC89AB2BE77B4B006E73DD /* SpeedTestManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		5FBC89A22BE76F78006E73DD /* SpeedTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeedTestViewController.swift; sourceTree = "<group>"; };
 		5FBC89A32BE76F78006E73DD /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		5FBC89A42BE76F78006E73DD /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../../speedtest/speedtest/AppDelegate.swift; sourceTree = "<group>"; };
+		5FBC89AB2BE77B4B006E73DD /* SpeedTestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedTestManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				5FBC89A12BE76F77006E73DD /* SettingsManager.swift */,
 				5FBC89A32BE76F78006E73DD /* SettingsViewController.swift */,
 				5FBC89A22BE76F78006E73DD /* SpeedTestViewController.swift */,
+				5FBC89AB2BE77B4B006E73DD /* SpeedTestManager.swift */,
 				5FBC899D2BE76F61006E73DD /* Main.storyboard */,
 				5FBC898B2BE76F15006E73DD /* Assets.xcassets */,
 				5FBC898D2BE76F15006E73DD /* LaunchScreen.storyboard */,
@@ -169,6 +172,7 @@
 				5FBC89A92BE76F78006E73DD /* SettingsViewController.swift in Sources */,
 				5FBC89A82BE76F78006E73DD /* SpeedTestViewController.swift in Sources */,
 				5FBC899B2BE76F3D006E73DD /* Double+BytesToMBit.swift in Sources */,
+				5FBC89AC2BE77B4B006E73DD /* SpeedTestManager.swift in Sources */,
 				5FBC899A2BE76F3D006E73DD /* NSMutableData+Append.swift in Sources */,
 				5FBC89A52BE76F78006E73DD /* Constants.swift in Sources */,
 				5FBC89A62BE76F78006E73DD /* SceneDelegate.swift in Sources */,
