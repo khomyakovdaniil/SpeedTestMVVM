@@ -20,6 +20,7 @@
 		5FBC89A92BE76F78006E73DD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBC89A32BE76F78006E73DD /* SettingsViewController.swift */; };
 		5FBC89AA2BE76F78006E73DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBC89A42BE76F78006E73DD /* AppDelegate.swift */; };
 		5FBC89AC2BE77B4B006E73DD /* SpeedTestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBC89AB2BE77B4B006E73DD /* SpeedTestManager.swift */; };
+		5FBC89AE2BE8C19A006E73DD /* SpeedTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBC89AD2BE8C19A006E73DD /* SpeedTestViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		5FBC89A32BE76F78006E73DD /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		5FBC89A42BE76F78006E73DD /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../../speedtest/speedtest/AppDelegate.swift; sourceTree = "<group>"; };
 		5FBC89AB2BE77B4B006E73DD /* SpeedTestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedTestManager.swift; sourceTree = "<group>"; };
+		5FBC89AD2BE8C19A006E73DD /* SpeedTestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedTestViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,14 +72,13 @@
 		5FBC89812BE76F11006E73DD /* SpeedTestMVVM */ = {
 			isa = PBXGroup;
 			children = (
+				5FBC89B22BE8CC42006E73DD /* Resources */,
+				5FBC89B12BE8CBC2006E73DD /* ViewModels */,
+				5FBC89B02BE8CBBD006E73DD /* Models */,
+				5FBC89AF2BE8CBB3006E73DD /* Views */,
 				5FBC89962BE76F3D006E73DD /* Extensions */,
 				5FBC89A42BE76F78006E73DD /* AppDelegate.swift */,
-				5FBC899F2BE76F77006E73DD /* Constants.swift */,
 				5FBC89A02BE76F77006E73DD /* SceneDelegate.swift */,
-				5FBC89A12BE76F77006E73DD /* SettingsManager.swift */,
-				5FBC89A32BE76F78006E73DD /* SettingsViewController.swift */,
-				5FBC89A22BE76F78006E73DD /* SpeedTestViewController.swift */,
-				5FBC89AB2BE77B4B006E73DD /* SpeedTestManager.swift */,
 				5FBC899D2BE76F61006E73DD /* Main.storyboard */,
 				5FBC898B2BE76F15006E73DD /* Assets.xcassets */,
 				5FBC898D2BE76F15006E73DD /* LaunchScreen.storyboard */,
@@ -94,6 +95,40 @@
 				5FBC89992BE76F3D006E73DD /* URLRequest+AddData.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5FBC89AF2BE8CBB3006E73DD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5FBC89A22BE76F78006E73DD /* SpeedTestViewController.swift */,
+				5FBC89A32BE76F78006E73DD /* SettingsViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5FBC89B02BE8CBBD006E73DD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5FBC89A12BE76F77006E73DD /* SettingsManager.swift */,
+				5FBC89AB2BE77B4B006E73DD /* SpeedTestManager.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5FBC89B12BE8CBC2006E73DD /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				5FBC89AD2BE8C19A006E73DD /* SpeedTestViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		5FBC89B22BE8CC42006E73DD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5FBC899F2BE76F77006E73DD /* Constants.swift */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,6 +205,7 @@
 				5FBC89AA2BE76F78006E73DD /* AppDelegate.swift in Sources */,
 				5FBC899C2BE76F3D006E73DD /* URLRequest+AddData.swift in Sources */,
 				5FBC89A92BE76F78006E73DD /* SettingsViewController.swift in Sources */,
+				5FBC89AE2BE8C19A006E73DD /* SpeedTestViewModel.swift in Sources */,
 				5FBC89A82BE76F78006E73DD /* SpeedTestViewController.swift in Sources */,
 				5FBC899B2BE76F3D006E73DD /* Double+BytesToMBit.swift in Sources */,
 				5FBC89AC2BE77B4B006E73DD /* SpeedTestManager.swift in Sources */,

@@ -8,16 +8,29 @@
 import Foundation
 import UIKit
 
-protocol SpeedTestDelegateProtocol: AnyObject {
-    func downloadSpeedChanged(to: String)
-    func uploadSpeedChanged(to: String)
+protocol SpeedTestManagerProtocol: NSObject {
+    var delegate: SpeedTestManagerDelegateProtocol? { get }
 }
 
-class SpeedTestManager: NSObject {
+protocol SpeedTestManagerDelegateProtocol: AnyObject {
+    func downloadSpeedChanged(to: Double)
+    func uploadSpeedChanged(to: Double)
+    func downloadTestFinished(with result: Double)
+    func uploadTestFinished(with result: Double)
+}
+
+
+
+class SpeedTestManager: NSObject, SpeedTestManagerProtocol {
     
     // MARK: - Init
     
-    func configure() {
+    override init() {
+        super.init()
+        configureSession()
+    }
+    
+    private func configureSession() {
         // Conguring URLSession, no cache storage and long timeout, delegate to self to read actual speed
         let configuration = URLSessionConfiguration.ephemeral
         configuration.timeoutIntervalForResource = Constants.standartTimeout
@@ -27,14 +40,14 @@ class SpeedTestManager: NSObject {
     
     // MARK: - main properties
     
-    weak var delegate: SpeedTestDelegateProtocol?
+    weak var delegate: SpeedTestManagerDelegateProtocol?
     
-    var downloadSpeed: String = "0.00" {
+    var downloadSpeed: Double = 0 {
         didSet {
             delegate?.downloadSpeedChanged(to: downloadSpeed)
         }
     }
-    var uploadSpeed: String = "0.00" {
+    var uploadSpeed: Double = 0 {
         didSet {
             delegate?.uploadSpeedChanged(to: uploadSpeed)
         }
@@ -77,12 +90,9 @@ class SpeedTestManager: NSObject {
             // Running testDownload and showing results in completion
             testDownload { [weak self] in
                 guard let self else { return }
-                DispatchQueue.main.async {
-//                    self.downloadSpeedMeasuredLabel.text = self.downloadSpeedCurrentLabel.text
-//                    self.downloadSpeedCurrentLabel.text = String(0.0)
-                    print("finished download")
-                    // - TODO: check
-                }
+                // Passing the result speed to delegate
+                delegate?.downloadTestFinished(with: self.downloadSpeed)
+                print("finished download")
                 // Changing the state, so the user can run the test again
                 stateIsTestInProgress = false
             }
@@ -97,12 +107,10 @@ class SpeedTestManager: NSObject {
             // Running testDownload and testUpload afterwards
             testDownload { [weak self] in
                 guard let self else { return }
-                DispatchQueue.main.async {
-//                    self.downloadSpeedMeasuredLabel.text = self.downloadSpeedCurrentLabel.text
-//                    self.downloadSpeedCurrentLabel.text = String(0.0)
-                    print("finished download")
-                    // - TODO: check
-                }
+                // Passing the result speed to delegate
+                delegate?.downloadTestFinished(with: self.downloadSpeed)
+                print("finished download")
+                // Starting upload task
                 self.testUpload(with: self.data as Data)
             }
         case (false, false):
@@ -154,13 +162,9 @@ class SpeedTestManager: NSObject {
             }
             print("finished uploading data \(data)")
             
-            // Showing the results
-            DispatchQueue.main.async {
-//                self.uploadSpeedMeasuredLabel.text = self.uploadSpeedCurrentLabel.text
-//                self.uploadSpeedCurrentLabel.text = String(0.0)
-                print("finished upload")
-                // - TODO: check
-            }
+            // Passing the result speed to delegate
+            delegate?.uploadTestFinished(with: self.uploadSpeed)
+            print("finished upload")
             
             // Changing the state, so the user can run the test again
             stateIsTestInProgress = false
@@ -187,7 +191,7 @@ extension SpeedTestManager: URLSessionDataDelegate {
         let speed = elapsed != 0 ? (Double(bytesReceived) / elapsed).bytesToMbit() : 0
         
         // Showing current speed
-        self.downloadSpeed = String(format: "%.2f", speed)
+        self.downloadSpeed = speed
         
         print("download speed \(speed)")
     }
@@ -207,7 +211,7 @@ extension SpeedTestManager: URLSessionDataDelegate {
         let speed = (Double(totalBytesSent) / elapsed ).bytesToMbit()
         
         // Showing current speed
-        self.uploadSpeed = String(format: "%.2f", speed)
+        self.uploadSpeed = speed
         
         print("upload speed \(speed)")
     }
