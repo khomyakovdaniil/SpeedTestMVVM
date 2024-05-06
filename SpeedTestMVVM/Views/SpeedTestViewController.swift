@@ -12,6 +12,7 @@ final class SpeedTestViewController: UIViewController {
     
     // MARK: - Outlets
     
+    // Labels to display test results
     @IBOutlet weak var downloadSpeedCurrentLabel: UILabel!
     @IBOutlet weak var downloadSpeedMeasuredLabel: UILabel!
     @IBOutlet weak var uploadSpeedCurrentLabel: UILabel!
@@ -20,24 +21,28 @@ final class SpeedTestViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func userDidTapTestSpeedButton(_ sender: Any) {
-        vm?.startTest()
+        vm?.startTest() // Initiate the test on button tap
     }
     
     // MARK: - Properties
     
-    var vm: SpeedTestViewModelProtocol?
+    var vm: SpeedTestViewModelProtocol? // ViewModel
     
-    private var cancellables: Set<AnyCancellable> = []
+    private var cancellables: Set<AnyCancellable> = [] // Cancellables for Combine subscibers
     
     // MARK: - ViewLifeCycle
     
     override func viewDidLoad() {
-        vm = SpeedTestViewModel(speedTestManager: SpeedTestManager())
-        bindData()
+        
+        // TODO: - proper dependecy injection for SpeedTestManager
+        vm = SpeedTestViewModel(speedTestManager: SpeedTestManager()) // Creating viewModel
+        
+        bindData() // Binding viewModels data to UI
     }
     
     func bindData() {
         
+        // vm downloadSpeedCurrent to relevant label
         vm?.downloadSpeedCurrentPublisher
             .sink { [weak self] value in
                 DispatchQueue.main.async {
@@ -46,6 +51,7 @@ final class SpeedTestViewController: UIViewController {
             }
             .store(in: &cancellables)
         
+        // vm uploadSpeedCurrent to relevant label
         vm?.uploadSpeedCurrentPublisher
             .sink { [weak self] value in
                 DispatchQueue.main.async {
@@ -54,6 +60,7 @@ final class SpeedTestViewController: UIViewController {
             }
             .store(in: &cancellables)
         
+        // vm downloadSpeedMeasured to relevant label
         vm?.downloadSpeedMeasuredPublisher
             .sink { [weak self] value in
                 DispatchQueue.main.async {
@@ -62,6 +69,7 @@ final class SpeedTestViewController: UIViewController {
             }
             .store(in: &cancellables)
         
+        // vm uploadSpeedMeasured to relevant label
         vm?.uploadSpeedMeasuredPublisher
             .sink { [weak self] value in
                 DispatchQueue.main.async {
@@ -69,9 +77,6 @@ final class SpeedTestViewController: UIViewController {
                 }
             }
             .store(in: &cancellables)
-        
-        
-        
     }
 }
 

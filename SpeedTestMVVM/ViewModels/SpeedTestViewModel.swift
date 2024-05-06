@@ -38,14 +38,16 @@ class SpeedTestViewModel: SpeedTestViewModelProtocol {
         self.speedTestManager = speedTestManager
     }
     
+    // Manager used to check speed
     private var speedTestManager: SpeedTestManager?
     
-    
+    // Measured properies
     @Published var downloadSpeedCurrent: Double = 0
     @Published var uploadSpeedCurrent: Double = 0
     @Published var downloadSpeedMeasured: Double = 0
     @Published var uploadSpeedMeasured: Double = 0
     
+    // Measured properies wrappers
     var downloadSpeedCurrentPublished: Published<Double> { _downloadSpeedCurrent }
     var downloadSpeedCurrentPublisher: Published<Double>.Publisher { $downloadSpeedCurrent }
     var uploadSpeedCurrentPublished: Published<Double> { _uploadSpeedCurrent }
@@ -56,11 +58,14 @@ class SpeedTestViewModel: SpeedTestViewModelProtocol {
     var uploadSpeedMeasuredPublisher: Published<Double>.Publisher { $uploadSpeedMeasured }
     
     func startTest() {
+        // TODO: use settings from setting manager here
         speedTestManager?.checkSpeed()
     }
 }
 
 extension SpeedTestViewModel: SpeedTestManagerDelegateProtocol {
+    
+    // Receive values from speedTestManager
     
     func downloadTestFinished(with result: Double) {
         downloadSpeedMeasured = result

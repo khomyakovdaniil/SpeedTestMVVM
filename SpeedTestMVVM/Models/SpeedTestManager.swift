@@ -9,10 +9,12 @@ import Foundation
 import UIKit
 
 protocol SpeedTestManagerProtocol: NSObject {
+    // Manager passes the results via delegate
     var delegate: SpeedTestManagerDelegateProtocol? { get }
 }
 
 protocol SpeedTestManagerDelegateProtocol: AnyObject {
+    // Sending the test results to delegate
     func downloadSpeedChanged(to: Double)
     func uploadSpeedChanged(to: Double)
     func downloadTestFinished(with result: Double)
@@ -27,7 +29,7 @@ class SpeedTestManager: NSObject, SpeedTestManagerProtocol {
     
     override init() {
         super.init()
-        configureSession()
+        configureSession() // Initial URLSession setup
     }
     
     private func configureSession() {
@@ -40,8 +42,9 @@ class SpeedTestManager: NSObject, SpeedTestManagerProtocol {
     
     // MARK: - main properties
     
-    weak var delegate: SpeedTestManagerDelegateProtocol?
+    weak var delegate: SpeedTestManagerDelegateProtocol? // Delegate to pass results
     
+    // Values passed to delegate here for easy syntax
     var downloadSpeed: Double = 0 {
         didSet {
             delegate?.downloadSpeedChanged(to: downloadSpeed)
@@ -190,7 +193,7 @@ extension SpeedTestManager: URLSessionDataDelegate {
         let elapsed = stopTime - startTime
         let speed = elapsed != 0 ? (Double(bytesReceived) / elapsed).bytesToMbit() : 0
         
-        // Showing current speed
+        // Setting current speed
         self.downloadSpeed = speed
         
         print("download speed \(speed)")
@@ -210,7 +213,7 @@ extension SpeedTestManager: URLSessionDataDelegate {
         let elapsed = self.stopTime - self.startTime
         let speed = (Double(totalBytesSent) / elapsed ).bytesToMbit()
         
-        // Showing current speed
+        // Setting current speed
         self.uploadSpeed = speed
         
         print("upload speed \(speed)")
