@@ -10,7 +10,8 @@ import UIKit
 
 protocol SpeedTestManagerProtocol: NSObject {
     // Manager passes the results via delegate
-    var delegate: SpeedTestManagerDelegateProtocol? { get }
+    var delegate: SpeedTestManagerDelegateProtocol? { get set }
+    func checkSpeed(downloadURL: URL?, uploadURL: URL? )
 }
 
 protocol SpeedTestManagerDelegateProtocol: AnyObject {

@@ -30,17 +30,27 @@ final class SpeedTestViewController: UIViewController {
     
     private var cancellables: Set<AnyCancellable> = [] // Cancellables for Combine subscibers
     
+    // MARK: - Initializer
+    
+    // Initializers for DI container
+    init?(coder: NSCoder, speedTestViewModel: SpeedTestViewModelProtocol) {
+        self.vm = speedTestViewModel
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - ViewLifeCycle
     
     override func viewDidLoad() {
-        
-        // TODO: - proper dependecy injection for SpeedTestManager
-        vm = SpeedTestViewModel(speedTestManager: SpeedTestManager()) // Creating viewModel
-        
         bindData() // Binding viewModels data to UI
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gearshape"), style: .plain, target: self, action: #selector(didTapSettingsButton))
     }
     
-    func bindData() {
+    private func bindData() {
         
         // vm downloadSpeedCurrent to relevant label
         vm?.downloadSpeedCurrentPublisher
@@ -77,6 +87,11 @@ final class SpeedTestViewController: UIViewController {
                 }
             }
             .store(in: &cancellables)
+    }
+    
+    @objc private func didTapSettingsButton() {
+        let settingsVC = SpeedTestDIContainer.shared.resolve(SettingsViewController.self)
+        self.navigationController?.pushViewController(settingsVC, animated: true)
     }
 }
 

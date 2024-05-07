@@ -22,6 +22,7 @@
 		5FBC89AC2BE77B4B006E73DD /* SpeedTestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBC89AB2BE77B4B006E73DD /* SpeedTestManager.swift */; };
 		5FBC89AE2BE8C19A006E73DD /* SpeedTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBC89AD2BE8C19A006E73DD /* SpeedTestViewModel.swift */; };
 		5FBC89B42BEA107B006E73DD /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBC89B32BEA107B006E73DD /* SettingsViewModel.swift */; };
+		5FBC89B72BEA21E2006E73DD /* SpeedTestDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBC89B62BEA21E2006E73DD /* SpeedTestDIContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		5FBC89AB2BE77B4B006E73DD /* SpeedTestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedTestManager.swift; sourceTree = "<group>"; };
 		5FBC89AD2BE8C19A006E73DD /* SpeedTestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedTestViewModel.swift; sourceTree = "<group>"; };
 		5FBC89B32BEA107B006E73DD /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		5FBC89B62BEA21E2006E73DD /* SpeedTestDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedTestDIContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 		5FBC89812BE76F11006E73DD /* SpeedTestMVVM */ = {
 			isa = PBXGroup;
 			children = (
+				5FBC89B52BEA21D0006E73DD /* DIContainer */,
 				5FBC89B22BE8CC42006E73DD /* Resources */,
 				5FBC89B12BE8CBC2006E73DD /* ViewModels */,
 				5FBC89B02BE8CBBD006E73DD /* Models */,
@@ -132,6 +135,14 @@
 				5FBC899F2BE76F77006E73DD /* Constants.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		5FBC89B52BEA21D0006E73DD /* DIContainer */ = {
+			isa = PBXGroup;
+			children = (
+				5FBC89B62BEA21E2006E73DD /* SpeedTestDIContainer.swift */,
+			);
+			path = DIContainer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,6 +219,7 @@
 				5FBC89AA2BE76F78006E73DD /* AppDelegate.swift in Sources */,
 				5FBC899C2BE76F3D006E73DD /* URLRequest+AddData.swift in Sources */,
 				5FBC89A92BE76F78006E73DD /* SettingsViewController.swift in Sources */,
+				5FBC89B72BEA21E2006E73DD /* SpeedTestDIContainer.swift in Sources */,
 				5FBC89AE2BE8C19A006E73DD /* SpeedTestViewModel.swift in Sources */,
 				5FBC89A82BE76F78006E73DD /* SpeedTestViewController.swift in Sources */,
 				5FBC899B2BE76F3D006E73DD /* Double+BytesToMBit.swift in Sources */,

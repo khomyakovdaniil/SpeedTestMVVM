@@ -32,15 +32,15 @@ protocol SpeedTestViewModelProtocol: AnyObject {
 
 class SpeedTestViewModel: SpeedTestViewModelProtocol {
     
-    init(speedManager: SpeedTestManager) {
+    init(speedManager: SpeedTestManagerProtocol, settingsManager: SettingsManager) {
         // SpeedTestManager returns speed via delegate
         speedManager.delegate = self
         self.speedTestManager = speedManager
-        self.settingsManager = SettingsManager.shared
+        self.settingsManager = settingsManager
     }
     
     // Manager used to check speed
-    private var speedTestManager: SpeedTestManager?
+    private var speedTestManager: SpeedTestManagerProtocol?
     
     private var settingsManager: SettingsManager?
     

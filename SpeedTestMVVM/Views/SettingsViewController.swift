@@ -21,6 +21,18 @@ final class SettingsViewController: UIViewController {
     
     var vm: SettingsViewModelProtocol = SettingsViewModel(settingsManager: SettingsManager.shared)
     
+    // MARK: - Initializer
+    
+    // Initializers for DI container
+    init?(coder: NSCoder, settingsViewModel: SettingsViewModelProtocol) {
+        self.vm = settingsViewModel
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - ViewLifeCycle
     
     override func viewDidLoad() {
