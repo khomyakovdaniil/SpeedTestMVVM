@@ -21,6 +21,7 @@
 		5FBC89AA2BE76F78006E73DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBC89A42BE76F78006E73DD /* AppDelegate.swift */; };
 		5FBC89AC2BE77B4B006E73DD /* SpeedTestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBC89AB2BE77B4B006E73DD /* SpeedTestManager.swift */; };
 		5FBC89AE2BE8C19A006E73DD /* SpeedTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBC89AD2BE8C19A006E73DD /* SpeedTestViewModel.swift */; };
+		5FBC89B42BEA107B006E73DD /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBC89B32BEA107B006E73DD /* SettingsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		5FBC89A42BE76F78006E73DD /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../../speedtest/speedtest/AppDelegate.swift; sourceTree = "<group>"; };
 		5FBC89AB2BE77B4B006E73DD /* SpeedTestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedTestManager.swift; sourceTree = "<group>"; };
 		5FBC89AD2BE8C19A006E73DD /* SpeedTestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedTestViewModel.swift; sourceTree = "<group>"; };
+		5FBC89B32BEA107B006E73DD /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				5FBC89AD2BE8C19A006E73DD /* SpeedTestViewModel.swift */,
+				5FBC89B32BEA107B006E73DD /* SettingsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				5FBC89A52BE76F78006E73DD /* Constants.swift in Sources */,
 				5FBC89A62BE76F78006E73DD /* SceneDelegate.swift in Sources */,
 				5FBC89A72BE76F78006E73DD /* SettingsManager.swift in Sources */,
+				5FBC89B42BEA107B006E73DD /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

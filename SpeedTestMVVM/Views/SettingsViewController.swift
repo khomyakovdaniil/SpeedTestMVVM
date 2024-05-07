@@ -17,6 +17,10 @@ final class SettingsViewController: UIViewController {
     @IBOutlet weak var downloadSpeedCheckBox: UIButton!
     @IBOutlet weak var uploadSpeedCheckBox: UIButton!
     
+    // MARK: - ViewModel
+    
+    var vm: SettingsViewModelProtocol = SettingsViewModel()
+    
     // MARK: - ViewLifeCycle
     
     override func viewDidLoad() {
@@ -27,60 +31,39 @@ final class SettingsViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func themePickerValueChanged(_ sender: UISegmentedControl) {
-        
-        // Saving input to settings
-        SettingsManager.saveTheme(sender.selectedSegmentIndex)
-        
-        // Changing the appearance accordingly
-        changeTheme(to: sender.selectedSegmentIndex)
+        // Passing input to viewModel
+        vm.userSelected(theme: sender.selectedSegmentIndex)
     }
     @IBAction func downloadUrlTextFieldChanged(_ sender: UITextField) {
-        
-        // Checking if user input is correct and saving to settings
-        guard let url = URL(string: sender.text ?? "") else { return }
-        SettingsManager.saveDownloadURL(url: url)
+        // Passing input to viewModel
+        vm.userEntered(downloadUrl: sender.text ?? "")
     }
     @IBAction func uploadUrlTextFieldChanged(_ sender: UITextField) {
-        
-        // Checking if user input is correct and saving to settings
-        guard let url = URL(string: sender.text ?? "") else { return }
-        SettingsManager.saveUploadURL(url: url)
+        // Passing input to viewModel
+        vm.userEntered(uploadUrl: sender.text ?? "")
     }
     @IBAction func downloadSpeedCheckBoxTapped(_ sender: UIButton) {
-        
         // Emulate checkbox behaviour
         sender.isSelected = !sender.isSelected
         
-        // Saving input to settings
-        SettingsManager.saveSkipDownloadSpeed(!sender.isSelected)
+        // Passing input to viewModel
+        vm.userChecked(testDownload: sender.isSelected)
     }
     @IBAction func uploadSpeedCheckBoxTapped(_ sender: UIButton) {
-        
         // Emulate checkbox behaviour
         sender.isSelected = !sender.isSelected
         
-        // Saving input to settings
-        SettingsManager.saveSkipUploadSpeed(!sender.isSelected)
+        // Passing input to viewModel
+        vm.userChecked(testUpload: sender.isSelected)
     }
     
     private func setupViews() {
         // Retrieving actual settings and settings the views accordingly
-        themePickerSegmentedControl.selectedSegmentIndex = SettingsManager.getTheme()
-        downloadUrlTextField.text = SettingsManager.getDownloadURL()?.absoluteString
-        uploadUrlTextField.text = SettingsManager.getUploadURL()?.absoluteString
-        downloadSpeedCheckBox.isSelected = !SettingsManager.getSkipDownloadSpeed()
-        uploadSpeedCheckBox.isSelected = !SettingsManager.getSkipUploadSpeed()
-    }
-    
-    private func changeTheme(to theme: Int) {
-        switch theme {
-        case 1:
-            UIApplication.shared.keyWindow?.overrideUserInterfaceStyle = .light
-        case 2:
-            UIApplication.shared.keyWindow?.overrideUserInterfaceStyle = .dark
-        default:
-            UIApplication.shared.keyWindow?.overrideUserInterfaceStyle = .unspecified
-        }
+        themePickerSegmentedControl.selectedSegmentIndex = vm.theme.rawValue
+        downloadUrlTextField.text = vm.downloadUrl.absoluteString
+        uploadUrlTextField.text = vm.uploadUrl.absoluteString
+        downloadSpeedCheckBox.isSelected = vm.shouldTestDownload
+        uploadSpeedCheckBox.isSelected = vm.shouldTestUpload
     }
 
 }

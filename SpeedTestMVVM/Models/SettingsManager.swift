@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 final class SettingsManager {
     
@@ -19,6 +20,14 @@ final class SettingsManager {
     
     static func saveTheme(_ theme: Int) {
         self.setting.set(theme, forKey: Constants.SettinsKeys.theme)
+        switch theme {
+        case 1:
+            UIApplication.shared.keyWindow?.overrideUserInterfaceStyle = .light
+        case 2:
+            UIApplication.shared.keyWindow?.overrideUserInterfaceStyle = .dark
+        default:
+            UIApplication.shared.keyWindow?.overrideUserInterfaceStyle = .unspecified
+        }
     }
     
     static func getTheme() -> Int {
