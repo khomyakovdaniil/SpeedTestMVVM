@@ -23,37 +23,37 @@ protocol SettingsViewModelProtocol {
 
 class SettingsViewModel: SettingsViewModelProtocol {
     
-    var theme = UIUserInterfaceStyle(rawValue: SettingsManager.getTheme()) ?? .unspecified
+    var theme = UIUserInterfaceStyle(rawValue: SettingsManager.shared.getTheme()) ?? .unspecified
     
-    var downloadUrl = SettingsManager.getDownloadURL() ?? URL(string: Constants.DefaultServerUrls.download)!
+    var downloadUrl = SettingsManager.shared.getDownloadURL() ?? URL(string: Constants.DefaultServerUrls.download)!
     
-    var uploadUrl = SettingsManager.getUploadURL() ?? URL(string: Constants.DefaultServerUrls.upload)!
+    var uploadUrl = SettingsManager.shared.getUploadURL() ?? URL(string: Constants.DefaultServerUrls.upload)!
     
-    var shouldTestDownload = !SettingsManager.getSkipDownloadSpeed()
+    var shouldTestDownload = !SettingsManager.shared.getSkipDownloadSpeed()
     
-    var shouldTestUpload = !SettingsManager.getSkipUploadSpeed()
+    var shouldTestUpload = !SettingsManager.shared.getSkipUploadSpeed()
     
     func userSelected(theme: Int) {
         guard let style = UIUserInterfaceStyle(rawValue: theme) else { return }
-        SettingsManager.saveTheme(theme)
+        SettingsManager.shared.saveTheme(theme)
     }
     
     func userEntered(downloadUrl: String) {
         guard let url = URL(string: downloadUrl) else { return }
-        SettingsManager.saveDownloadURL(url: url)
+        SettingsManager.shared.saveDownloadURL(url: url)
     }
     
     func userEntered(uploadUrl: String) {
         guard let url = URL(string: uploadUrl) else { return }
-        SettingsManager.saveUploadURL(url: url)
+        SettingsManager.shared.saveUploadURL(url: url)
     }
     
     func userChecked(testDownload: Bool) {
-        SettingsManager.saveSkipDownloadSpeed(!testDownload)
+        SettingsManager.shared.saveSkipDownloadSpeed(!testDownload)
     }
     
     func userChecked(testUpload: Bool) {
-        SettingsManager.saveSkipUploadSpeed(!testUpload)
+        SettingsManager.shared.saveSkipUploadSpeed(!testUpload)
     }
     
 }

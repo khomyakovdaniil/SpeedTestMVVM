@@ -86,7 +86,7 @@ class SpeedTestManager: NSObject, SpeedTestManagerProtocol {
         stateIsTestInProgress = true
         
         // Checking if the user wants to check download and upload speed
-        let checkState: (Bool, Bool) = (!SettingsManager.getSkipDownloadSpeed(), !SettingsManager.getSkipUploadSpeed())
+        let checkState: (Bool, Bool) = (!SettingsManager.shared.getSkipDownloadSpeed(), !SettingsManager.shared.getSkipUploadSpeed())
         
         switch checkState {
         case (true, false):
@@ -126,7 +126,7 @@ class SpeedTestManager: NSObject, SpeedTestManagerProtocol {
     private func testDownload(completionBlock: @escaping () -> Void) {
         
         // Retrieving server URL which is either default or user provided
-        guard let url = SettingsManager.getDownloadURL() else { return }
+        guard let url = SettingsManager.shared.getDownloadURL() else { return }
         
         // Resetting the timestamps and data count to calculate speed
         startTime = CFAbsoluteTimeGetCurrent()
@@ -142,7 +142,7 @@ class SpeedTestManager: NSObject, SpeedTestManagerProtocol {
     private func testUpload(with data: Data) {
         
         // Retrieving server URL which is either default or user provided
-        guard let url = SettingsManager.getUploadURL() else { return }
+        guard let url = SettingsManager.shared.getUploadURL() else { return }
         
         // Creating a upload request with proper body syntax
         guard let urlRequest = URLRequest(url: url).createDataUploadRequest(fileName: Constants.testImageName, data: data, mimeType: Constants.testImageMimeType) else {
