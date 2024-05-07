@@ -32,14 +32,17 @@ protocol SpeedTestViewModelProtocol: AnyObject {
 
 class SpeedTestViewModel: SpeedTestViewModelProtocol {
     
-    init(speedTestManager: SpeedTestManager) {
+    init(speedManager: SpeedTestManager) {
         // SpeedTestManager returns speed via delegate
-        speedTestManager.delegate = self
-        self.speedTestManager = speedTestManager
+        speedManager.delegate = self
+        self.speedTestManager = speedManager
+        self.settingsManager = SettingsManager.shared
     }
     
     // Manager used to check speed
     private var speedTestManager: SpeedTestManager?
+    
+    private var settingsManager: SettingsManager?
     
     // Measured properies
     @Published var downloadSpeedCurrent: Double = 0
@@ -58,8 +61,12 @@ class SpeedTestViewModel: SpeedTestViewModelProtocol {
     var uploadSpeedMeasuredPublisher: Published<Double>.Publisher { $uploadSpeedMeasured }
     
     func startTest() {
-        // TODO: use settings from setting manager here
-        speedTestManager?.checkSpeed()
+        guard let settingsManager else { return }
+        // Retrieve URL only if user wants a specific test, otherwise pass nil to speedTestManager
+        let downloadURL = settingsManager.getSkipDownloadSpeed() ? nil : settingsManager.getDownloadURL()
+        let uploadURL = settingsManager.getSkipUploadSpeed() ? nil : settingsManager.getUploadURL()
+        
+        speedTestManager?.checkSpeed(downloadURL: downloadURL, uploadURL: uploadURL)
     }
 }
 

@@ -19,7 +19,7 @@ final class SettingsViewController: UIViewController {
     
     // MARK: - ViewModel
     
-    var vm: SettingsViewModelProtocol = SettingsViewModel()
+    var vm: SettingsViewModelProtocol = SettingsViewModel(settingsManager: SettingsManager.shared)
     
     // MARK: - ViewLifeCycle
     

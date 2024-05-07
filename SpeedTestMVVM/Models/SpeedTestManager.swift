@@ -78,7 +78,7 @@ class SpeedTestManager: NSObject, SpeedTestManagerProtocol {
     // Test image to get data for uploading
     private let image = UIImage(named: Constants.testImageName)!
     
-    func checkSpeed() {
+    func checkSpeed(downloadURL: URL?, uploadURL: URL? ) {
         
         guard !stateIsTestInProgress else { return }
         
@@ -86,12 +86,12 @@ class SpeedTestManager: NSObject, SpeedTestManagerProtocol {
         stateIsTestInProgress = true
         
         // Checking if the user wants to check download and upload speed
-        let checkState: (Bool, Bool) = (!SettingsManager.shared.getSkipDownloadSpeed(), !SettingsManager.shared.getSkipUploadSpeed())
+        let checkState: (Bool, Bool) = (downloadURL != nil, uploadURL != nil)
         
         switch checkState {
         case (true, false):
-            // Running testDownload and showing results in completion
-            testDownload { [weak self] in
+            // Running testDownload and showing results in completion, downloadURL != nil
+            testDownload(for: downloadURL!) { [weak self] in
                 guard let self else { return }
                 // Passing the result speed to delegate
                 delegate?.downloadTestFinished(with: self.downloadSpeed)
@@ -104,17 +104,17 @@ class SpeedTestManager: NSObject, SpeedTestManagerProtocol {
             if data.isEmpty {
                 data.append(image.pngData()!)
             }
-            // Running test upload with given data
-            self.testUpload(with: data as Data)
+            // Running test upload with given data, uploadURL != nil
+            self.testUpload(with: data as Data, for: uploadURL!)
         case (true, true):
-            // Running testDownload and testUpload afterwards
-            testDownload { [weak self] in
+            // Running testDownload and testUpload afterwards, downloadURL != nil, uploadURL != nil
+            testDownload(for: downloadURL!) { [weak self] in
                 guard let self else { return }
                 // Passing the result speed to delegate
                 delegate?.downloadTestFinished(with: self.downloadSpeed)
                 print("finished download")
                 // Starting upload task
-                self.testUpload(with: self.data as Data)
+                self.testUpload(with: self.data as Data, for: uploadURL!)
             }
         case (false, false):
             return
@@ -123,10 +123,7 @@ class SpeedTestManager: NSObject, SpeedTestManagerProtocol {
     
     // MARK: - Private functions
     
-    private func testDownload(completionBlock: @escaping () -> Void) {
-        
-        // Retrieving server URL which is either default or user provided
-        guard let url = SettingsManager.shared.getDownloadURL() else { return }
+    private func testDownload(for url: URL, completionBlock: @escaping () -> Void) {
         
         // Resetting the timestamps and data count to calculate speed
         startTime = CFAbsoluteTimeGetCurrent()
@@ -139,10 +136,7 @@ class SpeedTestManager: NSObject, SpeedTestManagerProtocol {
         session?.dataTask(with: url).resume()
     }
     
-    private func testUpload(with data: Data) {
-        
-        // Retrieving server URL which is either default or user provided
-        guard let url = SettingsManager.shared.getUploadURL() else { return }
+    private func testUpload(with data: Data, for url: URL) {
         
         // Creating a upload request with proper body syntax
         guard let urlRequest = URLRequest(url: url).createDataUploadRequest(fileName: Constants.testImageName, data: data, mimeType: Constants.testImageMimeType) else {

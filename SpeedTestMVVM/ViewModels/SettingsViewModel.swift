@@ -23,37 +23,49 @@ protocol SettingsViewModelProtocol {
 
 class SettingsViewModel: SettingsViewModelProtocol {
     
-    var theme = UIUserInterfaceStyle(rawValue: SettingsManager.shared.getTheme()) ?? .unspecified
+    var settingsManager: SettingsManager
     
-    var downloadUrl = SettingsManager.shared.getDownloadURL() ?? URL(string: Constants.DefaultServerUrls.download)!
+    init(settingsManager: SettingsManager) {
+        self.settingsManager = settingsManager
+        theme = UIUserInterfaceStyle(rawValue: settingsManager.getTheme()) ?? .unspecified
+        downloadUrl = settingsManager.getDownloadURL() ?? URL(string: Constants.DefaultServerUrls.download)!
+        uploadUrl = settingsManager.getUploadURL() ?? URL(string: Constants.DefaultServerUrls.upload)!
+        shouldTestDownload = !settingsManager.getSkipDownloadSpeed()
+        shouldTestUpload = !settingsManager.getSkipUploadSpeed()
+    }
     
-    var uploadUrl = SettingsManager.shared.getUploadURL() ?? URL(string: Constants.DefaultServerUrls.upload)!
+    var theme: UIUserInterfaceStyle
     
-    var shouldTestDownload = !SettingsManager.shared.getSkipDownloadSpeed()
+    var downloadUrl: URL
     
-    var shouldTestUpload = !SettingsManager.shared.getSkipUploadSpeed()
+    var uploadUrl: URL
+    
+    var shouldTestDownload: Bool
+    
+    var shouldTestUpload: Bool
+    
     
     func userSelected(theme: Int) {
         guard let style = UIUserInterfaceStyle(rawValue: theme) else { return }
-        SettingsManager.shared.saveTheme(theme)
+        settingsManager.saveTheme(theme)
     }
     
     func userEntered(downloadUrl: String) {
         guard let url = URL(string: downloadUrl) else { return }
-        SettingsManager.shared.saveDownloadURL(url: url)
+        settingsManager.saveDownloadURL(url: url)
     }
     
     func userEntered(uploadUrl: String) {
         guard let url = URL(string: uploadUrl) else { return }
-        SettingsManager.shared.saveUploadURL(url: url)
+        settingsManager.saveUploadURL(url: url)
     }
     
     func userChecked(testDownload: Bool) {
-        SettingsManager.shared.saveSkipDownloadSpeed(!testDownload)
+        settingsManager.saveSkipDownloadSpeed(!testDownload)
     }
     
     func userChecked(testUpload: Bool) {
-        SettingsManager.shared.saveSkipUploadSpeed(!testUpload)
+        settingsManager.saveSkipUploadSpeed(!testUpload)
     }
     
 }
