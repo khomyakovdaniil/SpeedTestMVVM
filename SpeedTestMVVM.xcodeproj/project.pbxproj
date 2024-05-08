@@ -7,23 +7,43 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5FBC89832BE76F11006E73DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBC89822BE76F11006E73DD /* AppDelegate.swift */; };
-		5FBC89852BE76F11006E73DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBC89842BE76F11006E73DD /* SceneDelegate.swift */; };
-		5FBC89872BE76F11006E73DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBC89862BE76F11006E73DD /* ViewController.swift */; };
-		5FBC898A2BE76F11006E73DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FBC89882BE76F11006E73DD /* Main.storyboard */; };
 		5FBC898C2BE76F15006E73DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FBC898B2BE76F15006E73DD /* Assets.xcassets */; };
 		5FBC898F2BE76F15006E73DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FBC898D2BE76F15006E73DD /* LaunchScreen.storyboard */; };
+		5FBC899A2BE76F3D006E73DD /* NSMutableData+Append.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBC89972BE76F3D006E73DD /* NSMutableData+Append.swift */; };
+		5FBC899B2BE76F3D006E73DD /* Double+BytesToMBit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBC89982BE76F3D006E73DD /* Double+BytesToMBit.swift */; };
+		5FBC899C2BE76F3D006E73DD /* URLRequest+AddData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBC89992BE76F3D006E73DD /* URLRequest+AddData.swift */; };
+		5FBC899E2BE76F61006E73DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FBC899D2BE76F61006E73DD /* Main.storyboard */; };
+		5FBC89A52BE76F78006E73DD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBC899F2BE76F77006E73DD /* Constants.swift */; };
+		5FBC89A62BE76F78006E73DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBC89A02BE76F77006E73DD /* SceneDelegate.swift */; };
+		5FBC89A72BE76F78006E73DD /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBC89A12BE76F77006E73DD /* SettingsManager.swift */; };
+		5FBC89A82BE76F78006E73DD /* SpeedTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBC89A22BE76F78006E73DD /* SpeedTestViewController.swift */; };
+		5FBC89A92BE76F78006E73DD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBC89A32BE76F78006E73DD /* SettingsViewController.swift */; };
+		5FBC89AA2BE76F78006E73DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBC89A42BE76F78006E73DD /* AppDelegate.swift */; };
+		5FBC89AC2BE77B4B006E73DD /* SpeedTestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBC89AB2BE77B4B006E73DD /* SpeedTestManager.swift */; };
+		5FBC89AE2BE8C19A006E73DD /* SpeedTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBC89AD2BE8C19A006E73DD /* SpeedTestViewModel.swift */; };
+		5FBC89B42BEA107B006E73DD /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBC89B32BEA107B006E73DD /* SettingsViewModel.swift */; };
+		5FBC89B72BEA21E2006E73DD /* SpeedTestDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBC89B62BEA21E2006E73DD /* SpeedTestDIContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5FBC897F2BE76F11006E73DD /* SpeedTestMVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeedTestMVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5FBC89822BE76F11006E73DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5FBC89842BE76F11006E73DD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5FBC89862BE76F11006E73DD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		5FBC89892BE76F11006E73DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5FBC898B2BE76F15006E73DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5FBC898E2BE76F15006E73DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5FBC89902BE76F15006E73DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5FBC89972BE76F3D006E73DD /* NSMutableData+Append.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMutableData+Append.swift"; sourceTree = "<group>"; };
+		5FBC89982BE76F3D006E73DD /* Double+BytesToMBit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+BytesToMBit.swift"; sourceTree = "<group>"; };
+		5FBC89992BE76F3D006E73DD /* URLRequest+AddData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLRequest+AddData.swift"; sourceTree = "<group>"; };
+		5FBC899D2BE76F61006E73DD /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		5FBC899F2BE76F77006E73DD /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5FBC89A02BE76F77006E73DD /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = ../../speedtest/speedtest/SceneDelegate.swift; sourceTree = "<group>"; };
+		5FBC89A12BE76F77006E73DD /* SettingsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
+		5FBC89A22BE76F78006E73DD /* SpeedTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeedTestViewController.swift; sourceTree = "<group>"; };
+		5FBC89A32BE76F78006E73DD /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		5FBC89A42BE76F78006E73DD /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../../speedtest/speedtest/AppDelegate.swift; sourceTree = "<group>"; };
+		5FBC89AB2BE77B4B006E73DD /* SpeedTestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedTestManager.swift; sourceTree = "<group>"; };
+		5FBC89AD2BE8C19A006E73DD /* SpeedTestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedTestViewModel.swift; sourceTree = "<group>"; };
+		5FBC89B32BEA107B006E73DD /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		5FBC89B62BEA21E2006E73DD /* SpeedTestDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedTestDIContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +76,73 @@
 		5FBC89812BE76F11006E73DD /* SpeedTestMVVM */ = {
 			isa = PBXGroup;
 			children = (
-				5FBC89822BE76F11006E73DD /* AppDelegate.swift */,
-				5FBC89842BE76F11006E73DD /* SceneDelegate.swift */,
-				5FBC89862BE76F11006E73DD /* ViewController.swift */,
-				5FBC89882BE76F11006E73DD /* Main.storyboard */,
+				5FBC89B52BEA21D0006E73DD /* DIContainer */,
+				5FBC89B22BE8CC42006E73DD /* Resources */,
+				5FBC89B12BE8CBC2006E73DD /* ViewModels */,
+				5FBC89B02BE8CBBD006E73DD /* Models */,
+				5FBC89AF2BE8CBB3006E73DD /* Views */,
+				5FBC89962BE76F3D006E73DD /* Extensions */,
+				5FBC89A42BE76F78006E73DD /* AppDelegate.swift */,
+				5FBC89A02BE76F77006E73DD /* SceneDelegate.swift */,
+				5FBC899D2BE76F61006E73DD /* Main.storyboard */,
 				5FBC898B2BE76F15006E73DD /* Assets.xcassets */,
 				5FBC898D2BE76F15006E73DD /* LaunchScreen.storyboard */,
 				5FBC89902BE76F15006E73DD /* Info.plist */,
 			);
 			path = SpeedTestMVVM;
+			sourceTree = "<group>";
+		};
+		5FBC89962BE76F3D006E73DD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5FBC89972BE76F3D006E73DD /* NSMutableData+Append.swift */,
+				5FBC89982BE76F3D006E73DD /* Double+BytesToMBit.swift */,
+				5FBC89992BE76F3D006E73DD /* URLRequest+AddData.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5FBC89AF2BE8CBB3006E73DD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5FBC89A22BE76F78006E73DD /* SpeedTestViewController.swift */,
+				5FBC89A32BE76F78006E73DD /* SettingsViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5FBC89B02BE8CBBD006E73DD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5FBC89A12BE76F77006E73DD /* SettingsManager.swift */,
+				5FBC89AB2BE77B4B006E73DD /* SpeedTestManager.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5FBC89B12BE8CBC2006E73DD /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				5FBC89AD2BE8C19A006E73DD /* SpeedTestViewModel.swift */,
+				5FBC89B32BEA107B006E73DD /* SettingsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		5FBC89B22BE8CC42006E73DD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5FBC899F2BE76F77006E73DD /* Constants.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5FBC89B52BEA21D0006E73DD /* DIContainer */ = {
+			isa = PBXGroup;
+			children = (
+				5FBC89B62BEA21E2006E73DD /* SpeedTestDIContainer.swift */,
+			);
+			path = DIContainer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +205,7 @@
 			files = (
 				5FBC898F2BE76F15006E73DD /* LaunchScreen.storyboard in Resources */,
 				5FBC898C2BE76F15006E73DD /* Assets.xcassets in Resources */,
-				5FBC898A2BE76F11006E73DD /* Main.storyboard in Resources */,
+				5FBC899E2BE76F61006E73DD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +216,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FBC89872BE76F11006E73DD /* ViewController.swift in Sources */,
-				5FBC89832BE76F11006E73DD /* AppDelegate.swift in Sources */,
-				5FBC89852BE76F11006E73DD /* SceneDelegate.swift in Sources */,
+				5FBC89AA2BE76F78006E73DD /* AppDelegate.swift in Sources */,
+				5FBC899C2BE76F3D006E73DD /* URLRequest+AddData.swift in Sources */,
+				5FBC89A92BE76F78006E73DD /* SettingsViewController.swift in Sources */,
+				5FBC89B72BEA21E2006E73DD /* SpeedTestDIContainer.swift in Sources */,
+				5FBC89AE2BE8C19A006E73DD /* SpeedTestViewModel.swift in Sources */,
+				5FBC89A82BE76F78006E73DD /* SpeedTestViewController.swift in Sources */,
+				5FBC899B2BE76F3D006E73DD /* Double+BytesToMBit.swift in Sources */,
+				5FBC89AC2BE77B4B006E73DD /* SpeedTestManager.swift in Sources */,
+				5FBC899A2BE76F3D006E73DD /* NSMutableData+Append.swift in Sources */,
+				5FBC89A52BE76F78006E73DD /* Constants.swift in Sources */,
+				5FBC89A62BE76F78006E73DD /* SceneDelegate.swift in Sources */,
+				5FBC89A72BE76F78006E73DD /* SettingsManager.swift in Sources */,
+				5FBC89B42BEA107B006E73DD /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		5FBC89882BE76F11006E73DD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5FBC89892BE76F11006E73DD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		5FBC898D2BE76F15006E73DD /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
